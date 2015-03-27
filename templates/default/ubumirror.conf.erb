@@ -41,19 +41,14 @@ UBUPOR_MIRROR=<%= @ubupor_mirror %>
 # UBUCDI_FLAVOURS is the set of image flavours to pull from UBICDI_MIRROR
 # flavour names must match directory names on the mirror
 UBUCDI_FLAVOURS="\
-  <%= @ubucdi_flavours.join(" \\ \n") %> \
-"
+  <%= @ubucdi_flavours.join(" \\ \n  ") %>"
 
 # UBU{ARC,CDI,REL}_EXCLUDE is what things you want to exclude
 UBUARC_EXCLUDE="\
-  <%= @ubuarc_exclude.join(" \\ \n") %> \
-"
+  <%= @ubuarc_exclude.join(" \\ \n  ") %>"
 UBUCDI_EXCLUDE="\
-  <%= @ubucdi_exclude.join(" \\ \n") %> \
-"
+  <%= @ubucdi_exclude.join(" \\ \n  ") %>"
 UBUREL_EXCLUDE="\
-  <%= @uburel_exclude.join(" \\ \n") %> \
-"
+  <%= @uburel_exclude.join(" \\ \n  ") %>"
 UBUPOR_EXCLUDE="\
-  <%= @ubupor_exclude.join(" \\ \n") %> \
-"
+  <%= @ubupor_exclude.join(" \\ \n  ") %>"
