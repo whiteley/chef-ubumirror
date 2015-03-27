@@ -27,6 +27,15 @@ package 'ubumirror' do
   action :upgrade
 end
 
+%w( ubuarc ubucdi uburel ubupor ).each do |p|
+  directory node['ubumirror']["#{p}_dir"] do
+    owner 'ubumirror'
+    group 'ubumirror'
+    mode '0755'
+    recursive true
+  end
+end
+
 template '/etc/ubumirror.conf' do
   source 'ubumirror.conf.erb'
   owner 'root'
