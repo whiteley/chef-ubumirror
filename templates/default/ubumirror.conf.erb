@@ -1,0 +1,59 @@
+#
+#   ubumirror.conf - configuration file for the ubumirror scripts.
+#
+
+# Please set the variables below to fit your site.
+# Which email address/user that will receive failure notices.
+EMAIL=<%= @email %>
+
+# Server's FQDN.
+HOSTNAME=<%= @hostname %>
+
+# Bandwidth limit for all mirror scripts - set to 0 for no limit.
+SPEED=<%= @speed %>
+
+# UBUARC_DIR is the destination for the base of the archive directory
+# The script won't run if this variable isn't set
+UBUARC_DIR="<%= @ubuarc_dir %>"
+
+# UBUCDI_DIR is the destination for the base of the cdimage directory
+# The script won't run if this variable isn't set
+UBUCDI_DIR="<%= @ubucdi_dir %>"
+
+# UBUREL_DIR is the destination for the base of the releases directory
+# The script won't run if this variable isn't set
+UBUREL_DIR="<%= @uburel_dir %>"
+
+# UBUPOR_DIR is the destination for the base of the ports directory
+# The script (ubuports) won't run if this variable isn't set
+UBUPOR_DIR="<%= @ubupor_dir %>"
+
+# LOGDIR is the destination directory of all the logs
+LOGDIR="<%= @logdir %>"
+
+# UBU{ARC,CDI,REL}_MIRROR is the rsync path in the form of host::directory/ of the
+# upstream mirrors where the ubumirror scripts will mirror from.
+UBUARC_MIRROR=<%= @ubuarc_mirror %>
+UBUCDI_MIRROR=<%= @ubucdi_mirror %>
+UBUREL_MIRROR=<%= @uburel_mirror %>
+UBUPOR_MIRROR=<%= @ubupor_mirror %>
+
+# UBUCDI_FLAVOURS is the set of image flavours to pull from UBICDI_MIRROR
+# flavour names must match directory names on the mirror
+UBUCDI_FLAVOURS="\
+  <%= @ubucdi_flavours.join(" \\ \n") %> \
+"
+
+# UBU{ARC,CDI,REL}_EXCLUDE is what things you want to exclude
+UBUARC_EXCLUDE="\
+  <%= @ubuarc_exclude.join(" \\ \n") %> \
+"
+UBUCDI_EXCLUDE="\
+  <%= @ubucdi_exclude.join(" \\ \n") %> \
+"
+UBUREL_EXCLUDE="\
+  <%= @uburel_exclude.join(" \\ \n") %> \
+"
+UBUPOR_EXCLUDE="\
+  <%= @ubupor_exclude.join(" \\ \n") %> \
+"
