@@ -13,4 +13,6 @@ platforms:
 
 suites:
   - name: default
-    run_list: ubumirror
+    run_list:
+      - recipe[apt]
+      - recipe[ubumirror]
