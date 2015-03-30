@@ -1,3 +1,7 @@
+[![Build Status](http://img.shields.io/travis/whiteley/chef-ubumirror.svg)][travis]
+
+[travis]: http://travis-ci.org/whiteley/chef-ubumirror
+
 # ubumirror-cookbook
 
 Installs and configures [Ubumirror](https://launchpad.net/ubumirror).

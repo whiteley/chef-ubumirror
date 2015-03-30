@@ -66,38 +66,34 @@ template '/etc/ubumirror.conf' do
   )
 end
 
-if node['ubumirror']['ubuarc_enable']
-  cron 'ubuarchive' do
-    minute '03'
-    hour '*/6'
-    command '/usr/bin/ubuarchive >/dev/null'
-    user 'ubumirror'
-  end
+cron 'ubuarchive' do
+  minute '03'
+  hour '*/6'
+  command '/usr/bin/ubuarchive >/dev/null'
+  user 'ubumirror'
+  only_if { node['ubumirror']['ubuarc_enable'] }
 end
 
-if node['ubumirror']['uburel_enable']
-  cron 'uburelease' do
-    minute '03'
-    hour '*/4'
-    command '/usr/bin/uburelease >/dev/null'
-    user 'ubumirror'
-  end
+cron 'uburelease' do
+  minute '03'
+  hour '*/4'
+  command '/usr/bin/uburelease >/dev/null'
+  user 'ubumirror'
+  only_if { node['ubumirror']['uburel_enable'] }
 end
 
-if node['ubumirror']['ubucdi_enable']
-  cron 'ubucdimage' do
-    minute '03'
-    hour '11'
-    command '/usr/bin/ubucdimage >/dev/null'
-    user 'ubumirror'
-  end
+cron 'ubucdimage' do
+  minute '03'
+  hour '11'
+  command '/usr/bin/ubucdimage >/dev/null'
+  user 'ubumirror'
+  only_if { node['ubumirror']['ubucdi_enable'] }
 end
 
-if node['ubumirror']['ubupor_enable']
-  cron 'ubuports' do
-    minute '03'
-    hour '23'
-    command '/usr/bin/ubuports >/dev/null'
-    user 'ubumirror'
-  end
+cron 'ubuports' do
+  minute '03'
+  hour '23'
+  command '/usr/bin/ubuports >/dev/null'
+  user 'ubumirror'
+  only_if { node['ubumirror']['ubupor_enable'] }
 end
