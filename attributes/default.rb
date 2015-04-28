@@ -27,6 +27,10 @@ default['ubumirror']['ubucdi_enable'] = false
 default['ubumirror']['uburel_enable'] = false
 default['ubumirror']['ubupor_enable'] = false
 
+default['ubumirror']['apache']['enable'] = false
+default['ubumirror']['apache']['port'] = 80
+default['ubumirror']['apache']['docroot'] = '/srv/mirror'
+
 default['ubumirror']['ubuarc_dir'] = '/srv/mirror/ubuntu'
 default['ubumirror']['ubucdi_dir'] = '/srv/mirror/ubuntu-cdimage'
 default['ubumirror']['uburel_dir'] = '/srv/mirror/ubuntu-releases'

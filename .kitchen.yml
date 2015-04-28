@@ -1,6 +1,8 @@
 ---
 driver:
   name: vagrant
+  network:
+  - ["forwarded_port", {guest: 80, host: 8000}]
 
 provisioner:
   name: chef_solo
@@ -15,4 +17,9 @@ suites:
   - name: default
     run_list:
       - recipe[apt]
+      - recipe[ubumirror]
+  -name: webmirror
+    run_list:
+      - recipe[apt]
+      - recipe[apache2]
       - recipe[ubumirror]

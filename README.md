@@ -8,7 +8,7 @@ Installs and configures [Ubumirror](https://launchpad.net/ubumirror).
 
 ## Supported Platforms
 
-Ubuntu 12.04
+Ubuntu 12.04 (not webmirror)
 Ubuntu 14.04
 
 ## Attributes
@@ -177,6 +177,24 @@ Ubuntu 14.04
       Contents-powerpc.gz
       Contents-sparc.gz
     )</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ubumirror']['apache']['enable']</tt></td>
+    <td>Boolean</td>
+    <td>Enables apache webmirror capabilities</td>
+    <td><tt>false</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ubumirror']['apache']['port']</tt></td>
+    <td>Integer</td>
+    <td>The port for apache to listen to for the ubumirror vhost</td>
+    <td><tt>80</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ubumirror']['apache']['docroot']</tt></td>
+    <td>String</td>
+    <td>The document root for the ubumirror webmirror</td>
+    <td><tt>/srv/mirror</tt></td>
   </tr>
 </table>
 

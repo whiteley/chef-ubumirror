@@ -1,0 +1,53 @@
+# This will
+
+Listen <%= @params[:port] %>
+
+<VirtualHost *>
+
+        ServerName <%= @params[:server_name] %>
+
+        DocumentRoot <%= @params[:docroot] %>
+
+        <Directory />
+                IndexOptions NameWidth=* +SuppressDescription
+                Options +Indexes +FollowSymLinks
+                IndexIgnore favicon.ico
+        </Directory>
+
+        # Munge the Cache-Control/Expires response headers to try make
+        # transparent proxy servers DTRT.
+        # This is used by the main Ubuntu archives.
+        <Files ~ "Release(\.gpg)?|Packages\.(bz2|gz)|Sources\.(bz2|gz)?$">
+                ExpiresActive On
+                ExpiresDefault "modification plus 3300 seconds"
+                # In case a shared cache keeps a copy of the file, explicitely
+                # set the expiry time.
+                Header append Cache-Control "s-maxage=3300"
+                # Proxies (shared caches) must re-obtain the file if it's older
+                # than s-maxage (they can never serve it if it's stale).
+                Header append Cache-Control "proxy-revalidate"
+                # It's ok to serve the same content so several different users.
+                Header append Cache-Control "public"
+        </Files>
+
+        # Set public cache control and a max age of 2 weeks for the debs and
+        # other files with a versionned URL.
+        <FilesMatch "\.(deb|iso|torrent|zsync)$">
+                ExpiresActive On
+                # Keep the file for two weeks - no matter if it's been modified
+                # recently or not.
+                ExpiresDefault "access plus 1209600 seconds"
+                # It's ok to share the same content between users.
+                Header append Cache-Control "public"
+        </FilesMatch>
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog /var/log/apache2/ubuntu-mirror_access.log combined
+        ErrorLog /var/log/apache2/ubuntu-mirror_error.log
+
+        ServerSignature On
+
+</VirtualHost>
