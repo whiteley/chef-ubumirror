@@ -44,11 +44,7 @@ UBUCDI_FLAVOURS="\
   <%= @ubucdi_flavours.join(" \\ \n  ") %>"
 
 # UBU{ARC,CDI,REL}_EXCLUDE is what things you want to exclude
-UBUARC_EXCLUDE="\
-  <%= @ubuarc_exclude.join(" \\ \n  ") %>"
-UBUCDI_EXCLUDE="\
-  <%= @ubucdi_exclude.join(" \\ \n  ") %>"
-UBUREL_EXCLUDE="\
-  <%= @uburel_exclude.join(" \\ \n  ") %>"
-UBUPOR_EXCLUDE="\
-  <%= @ubupor_exclude.join(" \\ \n  ") %>"
+UBUARC_EXCLUDE="--exclude <%= @ubuarc_exclude.join(" --exclude ") %>"
+UBUCDI_EXCLUDE="--exclude <%= @ubucdi_exclude.join(" --exclude ") %>"
+UBUREL_EXCLUDE="--exclude <%= @uburel_exclude.join(" --exclude ") %>"
+UBUPOR_EXCLUDE="--exclude <%= @ubupor_exclude.join(" --exclude ") %>"

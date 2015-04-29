@@ -23,6 +23,11 @@ user 'ubumirror' do
   system true
 end
 
+apt_repository 'ubumirror' do
+  uri 'ppa:ubumirror-devs/ubumirror'
+  distribution 'trusty'
+end
+
 package 'ubumirror' do
   action :upgrade
 end
@@ -64,6 +69,36 @@ template '/etc/ubumirror.conf' do
     uburel_exclude: node['ubumirror']['uburel_exclude'],
     ubupor_exclude: node['ubumirror']['ubupor_exclude']
   )
+end
+
+if node['ubumirror']['apache']['enable']
+
+  apache_module 'headers' do
+    enable true
+  end
+
+  apache_module 'expires' do
+    enable true
+  end
+
+  apache_conf 'webmirror' do
+    enable true
+  end
+
+  web_app 'ubumirror' do
+    template 'apache2/ubumirror.erb'
+    docroot node['ubumirror']['apache']['docroot']
+    server_name node['ubumirror']['hostname']
+    port node['ubumirror']['apache']['port']
+  end
+
+end
+
+directory '/var/log/ubumirror' do
+  owner 'ubumirror'
+  group 'root'
+  mode '0755'
+  action :create
 end
 
 cron 'ubuarchive' do
