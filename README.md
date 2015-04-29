@@ -33,7 +33,7 @@ Ubuntu 14.04
     <td><tt>0</tt></td>
   </tr>
   <tr>
-    <td><tt>['ubumirror']['logdir']</tt></td>
+    <td><tt>['ubumirror']['log_dir']</tt></td>
     <td>String</td>
     <td>The destination directory of all the logs.</td>
     <td><tt>/var/log/ubumirror</tt></td>

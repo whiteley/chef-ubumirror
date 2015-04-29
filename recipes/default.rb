@@ -27,7 +27,7 @@ package 'ubumirror' do
   action :upgrade
 end
 
-%w( ubuarc ubucdi uburel ubupor ).each do |p|
+%w( log ubuarc ubucdi uburel ubupor ).each do |p|
   directory node['ubumirror']["#{p}_dir"] do
     owner 'ubumirror'
     group 'ubumirror'
@@ -53,7 +53,7 @@ template '/etc/ubumirror.conf' do
     ubucdi_dir: node['ubumirror']['ubucdi_dir'],
     uburel_dir: node['ubumirror']['uburel_dir'],
     ubupor_dir: node['ubumirror']['ubupor_dir'],
-    logdir: node['ubumirror']['logdir'],
+    logdir: node['ubumirror']['log_dir'],
     ubuarc_mirror: node['ubumirror']['ubuarc_mirror'],
     ubucdi_mirror: node['ubumirror']['ubucdi_mirror'],
     uburel_mirror: node['ubumirror']['uburel_mirror'],

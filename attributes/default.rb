@@ -20,7 +20,7 @@
 default['ubumirror']['email'] = 'root@localhost'
 default['ubumirror']['hostname'] = node['fqdn']
 default['ubumirror']['speed'] = '0'
-default['ubumirror']['logdir'] = '/var/log/ubumirror'
+default['ubumirror']['log_dir'] = '/var/log/ubumirror'
 
 default['ubumirror']['ubuarc_enable'] = false
 default['ubumirror']['ubucdi_enable'] = false

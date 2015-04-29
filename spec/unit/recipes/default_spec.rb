@@ -14,6 +14,7 @@ describe 'ubumirror::default' do
 
   it 'configures ubumirror' do
     expect(chef_run).to render_file('/etc/ubumirror.conf')
+    expect(chef_run).to create_directory('/var/log/ubumirror')
     expect(chef_run).to create_directory('/srv/mirror/ubuntu')
     expect(chef_run).to create_directory('/srv/mirror/ubuntu-cdimage')
     expect(chef_run).to create_directory('/srv/mirror/ubuntu-releases')
