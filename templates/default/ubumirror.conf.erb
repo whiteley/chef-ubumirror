@@ -45,10 +45,22 @@ UBUCDI_FLAVOURS="\
 
 # UBU{ARC,CDI,REL}_EXCLUDE is what things you want to exclude
 UBUARC_EXCLUDE="\
-  <%= @ubuarc_exclude.join(" \\ \n  ") %>"
+<% @ubuarc_exclude.each do |pattern| %>
+  --exclude <%= pattern %> \
+<% end %>
+"
 UBUCDI_EXCLUDE="\
-  <%= @ubucdi_exclude.join(" \\ \n  ") %>"
+<% @ubucdi_exclude.each do |pattern| %>
+  --exclude <%= pattern %> \
+<% end %>
+"
 UBUREL_EXCLUDE="\
-  <%= @uburel_exclude.join(" \\ \n  ") %>"
+<% @uburel_exclude.each do |pattern| %>
+  --exclude <%= pattern %> \
+<% end %>
+"
 UBUPOR_EXCLUDE="\
-  <%= @ubupor_exclude.join(" \\ \n  ") %>"
+<% @ubupor_exclude.each do |pattern| %>
+  --exclude <%= pattern %> \
+<% end %>
+"
