@@ -19,8 +19,10 @@
 
 user 'ubumirror' do
   comment 'Ubuntu Mirror User'
+  home node['ubumirror']['home']
   shell '/bin/false'
   system true
+  action [:create, :manage]
 end
 
 package 'ubumirror' do

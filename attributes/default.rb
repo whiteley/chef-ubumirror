@@ -27,10 +27,12 @@ default['ubumirror']['ubucdi_enable'] = false
 default['ubumirror']['uburel_enable'] = false
 default['ubumirror']['ubupor_enable'] = false
 
-default['ubumirror']['ubuarc_dir'] = '/srv/mirror/ubuntu'
-default['ubumirror']['ubucdi_dir'] = '/srv/mirror/ubuntu-cdimage'
-default['ubumirror']['uburel_dir'] = '/srv/mirror/ubuntu-releases'
-default['ubumirror']['ubupor_dir'] = '/srv/mirror/ubuntu-ports'
+default['ubumirror']['ubumirror_home'] = '/srv/mirror'
+
+default['ubumirror']['ubuarc_dir'] = "#{node['ubumirror']['home']}/ubuntu"
+default['ubumirror']['ubucdi_dir'] = "#{node['ubumirror']['home']}/ubuntu-cdimage"
+default['ubumirror']['uburel_dir'] = "#{node['ubumirror']['home']}/ubuntu-releases"
+default['ubumirror']['ubupor_dir'] = "#{node['ubumirror']['home']}/ubuntu-ports"
 
 default['ubumirror']['ubuarc_mirror'] = 'archive.ubuntu.com::ubuntu/'
 default['ubumirror']['ubucdi_mirror'] = 'cdimage.ubuntu.com::cdimage/'
