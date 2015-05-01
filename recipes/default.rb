@@ -19,7 +19,7 @@
 
 user 'ubumirror' do
   comment 'Ubuntu Mirror User'
-  home node['ubumirror']['home']
+  home node['ubumirror']['home_dir']
   shell '/bin/false'
   system true
   action [:create, :manage]
