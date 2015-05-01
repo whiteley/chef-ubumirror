@@ -25,6 +25,7 @@ user 'ubumirror' do
   action [:create, :manage]
 end
 
+package 'mailutils'
 package 'ubumirror' do
   action :upgrade
 end
